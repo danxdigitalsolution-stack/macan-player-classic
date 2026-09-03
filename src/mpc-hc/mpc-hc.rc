@@ -1581,6 +1581,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "P&roperties",                 ID_FILE_PROPERTIES
         MENUITEM "Open File &Location",         ID_FILE_OPEN_LOCATION
+        MENUITEM "Video &Converter...",        ID_FILE_VIDEOCONVERTER
         MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_FILE_EXIT
     END
