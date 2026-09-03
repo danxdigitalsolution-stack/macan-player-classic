@@ -181,7 +181,7 @@ BEGIN
                     "SysLink",WS_TABSTOP,60,20,200,8
     CONTROL         "",IDC_HOMEPAGE_LINK,"SysLink",WS_TABSTOP,60,32,200,8
     LTEXT           "This program is freeware and released under the GNU General Public License.",IDC_STATIC,7,46,246,18
-    LTEXT           "English translation made by MPC-HC Team",IDC_STATIC,7,66,246,8
+    LTEXT           "English translation made by Macan Player Classic Team",IDC_STATIC,7,66,246,8
     GROUPBOX        "Build information",IDC_STATIC,7,80,246,60
     LTEXT           "Version:",IDC_STATIC,13,92,85,8
     LTEXT           "",IDC_VERSION,95,92,155,8
@@ -561,7 +561,7 @@ EXSTYLE WS_EX_TOOLWINDOW
 CAPTION "Warning"
 FONT 9, "Segoe UI", 400, 0, 0x1
 BEGIN
-    LTEXT           "MPC-HC could not render some of the pins in the graph, you may not have the needed codecs or filters installed on the system.",IDC_STATIC1,5,5,286,27
+    LTEXT           "Macan Player Classic could not render some of the pins in the graph, you may not have the needed codecs or filters installed on the system.",IDC_STATIC1,5,5,286,27
     LTEXT           "The following pin(s) failed to find a connectable filter:",IDC_STATIC2,5,29,286,8
     COMBOBOX        IDC_COMBO1,5,41,286,87,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,5,58,286,140,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
@@ -1077,7 +1077,7 @@ EXSTYLE WS_EX_TOPMOST
 CAPTION "Crash reporter"
 FONT 9, "Segoe UI", 400, 0, 0x1
 BEGIN
-    LTEXT           "We are sorry, it seems MPC-HC just crashed. :(",IDC_STATIC,5,5,290,8
+    LTEXT           "We are sorry, it seems Macan Player Classic just crashed. :(",IDC_STATIC,5,5,290,8
     CONTROL         "Send a bug report to help us diagnose and fix the problem.",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,19,290,8
     GROUPBOX        "Optional information",IDC_STATIC1,5,33,290,182
@@ -1086,8 +1086,8 @@ BEGIN
     LTEXT           "Your email address is optional and will only be used if the developers need to contact you for more information.",IDC_STATIC3,10,71,280,16
     LTEXT           "Problem description (use English only):",IDC_STATIC4,10,93,280,8
     EDITTEXT        IDC_EDIT2,10,105,280,104,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
-    DEFPUSHBUTTON   "Restart MPC-HC",IDC_BUTTON1,45,220,120,14
-    PUSHBUTTON      "Quit MPC-HC",IDC_BUTTON2,175,220,120,14
+    DEFPUSHBUTTON   "Restart Macan Player Classic",IDC_BUTTON1,45,220,120,14
+    PUSHBUTTON      "Quit Macan Player Classic",IDC_BUTTON2,175,220,120,14
 END
 
 IDD_PPAGEDPICALC DIALOGEX 0, 0, 355, 289
@@ -2685,7 +2685,7 @@ BEGIN
     IDS_EDIT_LIST_EDITOR    "Edit List Editor"
     IDS_GOTO_ERROR_INVALID_TIME 
                             "The entered time is greater than the file duration."
-    IDS_MISSING_ICONS_LIB   "The icons library ""mpciconlib.dll"" is missing.\nThe player's default icon will be used for file associations.\nPlease, reinstall MPC-HC to get ""mpciconlib.dll""."
+    IDS_MISSING_ICONS_LIB   "The icons library ""mpciconlib.dll"" is missing.\nThe player's default icon will be used for file associations.\nPlease, reinstall Macan Player Classic to get ""mpciconlib.dll""."
     IDS_SUBDL_DLG_FILENAME_COL "File"
     IDS_SUBDL_DLG_LANGUAGE_COL "Language"
     IDS_SUBDL_DLG_FORMAT_COL "Format"
@@ -2820,7 +2820,7 @@ STRINGTABLE
 BEGIN
     IDS_LANG_PREF_EXAMPLE   "Enter your preferred languages here.\nUse three letter ISO 639-2 languages codes.\nFor example: eng spa ger fre rus pob jpn chi"
     IDS_OVERRIDE_EXT_SPLITTER_CHOICE 
-                            "External splitters can have their own language preference options thus MPC-HC default behavior is not to change their initial choice.\nEnable this option if you want MPC-HC to control external splitters."
+                            "External splitters can have their own language preference options thus Macan Player Classic default behavior is not to change their initial choice.\nEnable this option if you want Macan Player Classic to control external splitters."
     IDS_NAVIGATE_BD_PLAYLISTS "&Blu-Ray playlists"
     IDS_NAVIGATE_PLAYLIST   "&Playlist"
     IDS_NAVIGATE_CHAPTERS   "&Chapters"
@@ -2956,7 +2956,7 @@ BEGIN
     IDC_CHECK_RELATIVETO    "If the rendering target is left undefined, it will be inherited from the default style."
     IDC_CHECK_NO_SUB_ANIM   "Disallow subtitle animation. Enabling this option will lower CPU usage. You can use it if you experience flashing subtitles."
     IDC_SUBPIC_TO_BUFFER    "Increasing the number of buffered subpictures should in general improve the rendering performance at the cost of a higher video RAM usage on the GPU."
-    IDC_BUTTON_EXT_SET      "After clicking this button, the checked state of the format group will reflect the actual file association for MPC-HC. A newly added extension will usually make it grayed, so don't forget to check it again before closing this dialog!"
+    IDC_BUTTON_EXT_SET      "After clicking this button, the checked state of the format group will reflect the actual file association for Macan Player Classic. A newly added extension will usually make it grayed, so don't forget to check it again before closing this dialog!"
     IDC_CHECK_ALLOW_DROPPING_SUBPIC 
                             "Disabling this option will prevent the subtitles from blinking but it may cause the video renderer to skip some video frames."
 END
@@ -3058,7 +3058,7 @@ BEGIN
     IDS_PLAYLIST_POSITION_RIGHT "&Right"
     IDS_PLAYLIST_POSITION_BOTTOM "&Bottom"
     IDS_PLAYLIST_POSITION_FLOAT "&Floating"
-    IDS_SETTINGS_KEEP_REGISTRY_COPY "Keep a copy of the settings in the Registry? This is useful as backup, and recommended if you want to use multiple copies of MPC-HC."
+    IDS_SETTINGS_KEEP_REGISTRY_COPY "Keep a copy of the settings in the Registry? This is useful as backup, and recommended if you want to use multiple copies of Macan Player Classic."
 END
 
 STRINGTABLE
@@ -3188,10 +3188,10 @@ BEGIN
     IDS_TIMER_HIGH_PRECISION "High precision"
     IDS_AFTERPLAYBACK_REWIND "After Playback: Rewind current file"
     IDS_AFTERPLAYBACK_CLOSE "After Playback: Close"
-    IDS_FRAME_INIT_FAILED   "MPC-HC encountered a problem during initialization."
+    IDS_FRAME_INIT_FAILED   "Macan Player Classic encountered a problem during initialization."
     IDS_TIME_SHIFT_TOOLTIP  "Enter a positive value if the audio is early, a negative value if it is late."
     IDS_WEBUI_DISABLED_PREVIEW_MSG 
-                            "Preview is currently disabled. You can enable it in MPC-HC's options."
+                            "Preview is currently disabled. You can enable it in Macan Player Classic's options."
     IDS_WEBUI_PREVIEW_WARNING 
                             "This option can be used to preview media files from remote location. Use it only on a properly secured private network.\n\nDo you really want to enable this option?"
     IDS_SUBTITLE_RENDERER_INTERNAL "Internal Subtitle Renderer"
@@ -3230,7 +3230,7 @@ BEGIN
     IDS_AG_SAVE_COPY        "Save a Copy"
     IDS_FASTSEEK_LATEST     "Latest keyframe"
     IDS_FASTSEEK_NEAREST    "Nearest keyframe"
-    IDS_HOOKS_FAILED        "MPC-HC encountered a problem during initialization. DVD playback may not work correctly. This problem might be caused by an incompatibility with certain security software."
+    IDS_HOOKS_FAILED        "Macan Player Classic encountered a problem during initialization. DVD playback may not work correctly. This problem might be caused by an incompatibility with certain security software."
     IDS_PPAGEFULLSCREEN_SHOWNEVER "Never show"
     IDS_PPAGEFULLSCREEN_SHOWMOVED "Show when moving the cursor, hide after:"
     IDS_PPAGEFULLSCREEN_SHOHHOVERED "Show when hovering control, hide after:"
@@ -3249,9 +3249,9 @@ BEGIN
     IDS_MENU_VIDEO_ANGLE    "Video Ang&le"
     IDS_RESET_SETTINGS      "Reset settings"
     IDS_RESET_SETTINGS_WARNING 
-                            "Are you sure you want to restore MPC-HC to its default settings?\nBe warned that ALL your current settings will be lost!"
+                            "Are you sure you want to restore Macan Player Classic to its default settings?\nBe warned that ALL your current settings will be lost!"
     IDS_RESET_SETTINGS_MUTEX 
-                            "Please close all instances of MPC-HC so that the default settings can be restored."
+                            "Please close all instances of Macan Player Classic so that the default settings can be restored."
     IDS_EXPORT_SETTINGS     "Export settings"
     IDS_EXPORT_SETTINGS_WARNING 
                             "Some changes have not been saved yet.\nDo you want to save them before exporting?"
@@ -3335,7 +3335,7 @@ BEGIN
     IDS_SUBDL_DLG_NOT_FOUND "No subtitles found."
     IDS_SUBDL_DLG_SUBS_AVAIL "%d subtitle(s) available."
     IDS_UPDATE_CONFIG_AUTO_CHECK 
-                            "Do you want to check periodically for MPC-HC updates?\n\nThis feature can be disabled later from the Miscellaneous options page."
+                            "Do you want to check periodically for Macan Player Classic updates?\n\nThis feature can be disabled later from the Miscellaneous options page."
     IDS_ZOOM_50             "50%"
     IDS_ZOOM_100            "100%"
     IDS_ZOOM_200            "200%"
@@ -3442,11 +3442,11 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ADD_TO_PLAYLIST     "Add to MPC-HC Playlist"
-    IDS_OPEN_WITH_MPC       "Play with MPC-HC"
+    IDS_ADD_TO_PLAYLIST     "Add to Macan Player Classic Playlist"
+    IDS_OPEN_WITH_MPC       "Play with Macan Player Classic"
     IDS_CANNOT_CHANGE_FORMAT 
-                            "MPC-HC does not have sufficient privileges to change file associations. Please click on the ""Run as administrator"" button."
-    IDS_APP_DESCRIPTION     "MPC-HC is an extremely light-weight, open source media player for Windows. It supports all common video and audio file formats available for playback. We are 100% spyware free, there are no advertisements or toolbars."
+                            "Macan Player Classic does not have sufficient privileges to change file associations. Please click on the ""Run as administrator"" button."
+    IDS_APP_DESCRIPTION     "Macan Player Classic is an extremely light-weight, open source media player for Windows. It supports all common video and audio file formats available for playback. We are 100% spyware free, there are no advertisements or toolbars."
     IDS_MAINFRM_12          "channel"
     IDS_MAINFRM_13          "channels"
 END
@@ -3466,7 +3466,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_D3DFS_WARNING       "This option is designed to avoid tearing. However, it will also prevent MPC-HC from displaying the context menu and any dialog box during playback.\n\nDo you really want to activate this option?"
+    IDS_D3DFS_WARNING       "This option is designed to avoid tearing. However, it will also prevent Macan Player Classic from displaying the context menu and any dialog box during playback.\n\nDo you really want to activate this option?"
     IDS_MAINFRM_139         "Sub delay: %ld ms"
     IDS_AG_TITLE2           "Title: %02d/%02d"
     IDS_REALVIDEO_INCOMPATIBLE 
@@ -3581,7 +3581,7 @@ STRINGTABLE
 BEGIN
     IDS_AG_DISABLED         "Disabled"
     IDS_AG_VSYNCOFFSET_DECREASE "Decrease VSync Offset"
-    IDS_MAINFRM_136         "MPC-HC D3D Fullscreen"
+    IDS_MAINFRM_136         "Macan Player Classic D3D Fullscreen"
     IDS_MAINFRM_137         "Unknown format"
     IDS_MAINFRM_138         "Sub shift: %ld ms"
     IDS_VOLUME_BOOST_INC    "Volume boost increase"
@@ -3849,7 +3849,7 @@ BEGIN
     IDS_USING_LATEST_STABLE "\nYou are already using the latest stable version."
     IDS_USING_NEWER_VERSION "Your current version is v%s.\n\nThe latest stable version is v%s."
     IDS_NEW_UPDATE_AVAILABLE 
-                            "MPC-HC v%s is now available. You are using v%s.\n\nDo you want to visit MPC-HC's website to download it?"
+                            "Macan Player Classic v%s is now available. You are using v%s.\n\nDo you want to visit Macan Player Classic's website to download it?"
     IDS_UPDATE_ERROR        "Update server not found.\n\nPlease check your internet connection or try again later."
     IDS_UPDATE_CLOSE        "&Close"
     IDS_OSD_ZOOM            "Zoom: %.0lf%%"
@@ -3984,11 +3984,11 @@ BEGIN
     IDS_CMD_PNS             "/pns ""name""\tSpecify PnS Frame Adjust Preset to use (for example: /pns ""%s"")"
     IDS_CMD_PNS_VALUES      "/pns ""px,py,zx,zy""\tSpecify direct position and zoom values in the format ""px,py,zx,zy"""
     IDS_CMD_ICONASSOC       "/iconsassoc\tReassociate format icons"
-    IDS_CMD_NOFOCUS         "/nofocus\t\tOpen MPC-HC in background"
+    IDS_CMD_NOFOCUS         "/nofocus\t\tOpen Macan Player Classic in background"
     IDS_CMD_WEBPORT         "/webport N\tStart web interface on specified port"
     IDS_CMD_DEBUG           "/debug\t\tShow debug information in OSD"
     IDS_CMD_NOCRASHREPORTER "/nocrashreporter\tDisable the crash reporter"
-    IDS_CMD_SLAVE           "/slave ""hWnd""\tUse MPC-HC as slave"
+    IDS_CMD_SLAVE           "/slave ""hWnd""\tUse Macan Player Classic as slave"
     IDS_CMD_HWGPU           "/hwgpu ""index""\tSet the index of the GPU used for hardware decoding.\n\t\tOnly available for CUVID and DXVA2 (copy-back)"
     IDS_CMD_RESET           "/reset\t\tRestore default settings"
     IDS_CMD_HELP            "/help /h /?\tShow help about command line switches"
@@ -4065,7 +4065,7 @@ BEGIN
     IDS_CMD_VIEWPRESET      "/viewpreset N\tStart with a specific preset,\n\t\twhere N is one of ""1"" Minimal, ""2"" Compact, ""3"" Normal, or ""4"" Custom"
     IDS_CMD_MUTE            "/mute\t\tMute the audio"
     IDS_CMD_VOLUME          "/volume N\tSet Volume, where N is a range from 0 to 100"
-    IDS_YOUTUBEDL_NOT_FOUND "Youtube-DL failed to launch. Make sure yt-dlp.exe or youtube-dl.exe is located in MPC-HC folder or in PATH."
+    IDS_YOUTUBEDL_NOT_FOUND "Youtube-DL failed to launch. Make sure yt-dlp.exe or youtube-dl.exe is located in Macan Player Classic folder or in PATH."
     IDS_CONTROLS_YOUTUBEDL  "Calling yt-dlp/youtube-dl..."
     IDS_VERTICAL_ALIGN_VIDEO_TOP "Align Top"
     IDS_VERTICAL_ALIGN_VIDEO_MIDDLE "Align Middle"
@@ -4209,7 +4209,7 @@ BEGIN
                             "Keep main window controls visible on current monitor when going fullscreen on another monitor."
     IDS_PPAGEADVANCED_BLOCKRDP "Block use of RDP Redirection Filter"
     IDS_PPAGEADVANCED_YDL_EXEPATH 
-                            "Full path of the yt-dlp (or youtube-dl) executable.\nJust the filename is enough in case it is located in same folder as MPC-HC.\nLeave empty to use default filename: yt-dlp.exe"
+                            "Full path of the yt-dlp (or youtube-dl) executable.\nJust the filename is enough in case it is located in same folder as Macan Player Classic.\nLeave empty to use default filename: yt-dlp.exe"
     IDS_PPAGEADVANCED_YDL_SUBS_PREFERENCE 
                             "The language preference for loading subtitle streams extracted by Youtube-DL.\nIf empty, no subtitles are loaded.\nUse ISO639-1 two letter language code(s).\nExample: en de es pl zh ja nl"
     IDS_PPAGEADVANCED_USE_AUTOMATIC_CAPTIONS 
