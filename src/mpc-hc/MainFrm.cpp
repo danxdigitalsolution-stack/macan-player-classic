@@ -358,6 +358,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
     ON_COMMAND(ID_FILE_REOPEN, OnFileReopen)
     ON_COMMAND(ID_FILE_RECYCLE, OnFileRecycle)
     ON_COMMAND(ID_FILE_SAVE_COPY, OnFileSaveAs)
+    ON_COMMAND(ID_FILE_VIDEOCONVERTER, OnFileVideoConverter)
     ON_UPDATE_COMMAND_UI(ID_FILE_SAVE_COPY, OnUpdateFileSaveAs)
     ON_COMMAND(ID_FILE_SAVE_IMAGE, OnFileSaveImage)
     ON_UPDATE_COMMAND_UI(ID_FILE_SAVE_IMAGE, OnUpdateFileSaveImage)
@@ -7496,6 +7497,55 @@ void CMainFrame::OnFileProperties()
 
     CPPageFileInfoSheet fileinfo(fn, ydlsrc, this, GetModalParent());
     fileinfo.DoModal();
+}
+
+void CMainFrame::OnFileVideoConverter()
+{
+    // Cari MacanVideoConverter.exe di folder yang sama dengan mpc-hc.exe
+    // (companion app hasil build video_convert.py via PyInstaller/Nuitka).
+    TCHAR szModulePath[MAX_PATH] = { 0 };
+    GetModuleFileName(nullptr, szModulePath, MAX_PATH);
+ 
+    CString strAppDir = szModulePath;
+    int nSlash = strAppDir.ReverseFind('\\');
+    if (nSlash >= 0) {
+        strAppDir = strAppDir.Left(nSlash + 1);
+    }
+ 
+    CString strConverterExe = strAppDir + _T("MacanVideoConverter.exe");
+ 
+    if (!PathFileExists(strConverterExe)) {
+        AfxMessageBox(
+            _T("MacanVideoConverter.exe tidak ditemukan di folder aplikasi.\n")
+            _T("Pastikan sudah di-build dan diletakkan berdampingan dengan mpc-hc.exe."),
+            MB_ICONWARNING | MB_OK);
+        return;
+    }
+ 
+    // Kirim path file yang lagi diputar (kalau ada) sebagai argumen, biar
+    // field input di converter auto-keisi (lihat _parse_args() di
+    // video_convert.py, yang baca argumen non-flag pertama sbg file path).
+    CString strCurFile = GetCurFileName(); // sudah ada di MPC-HC, dipakai jg oleh OnFileSaveCopy dkk.
+ 
+    CString strCmdLine;
+    strCmdLine.Format(_T("\"%s\"%s%s%s"),
+                       strConverterExe,
+                       strCurFile.IsEmpty() ? _T("") : _T(" \""),
+                       strCurFile.IsEmpty() ? _T("") : (LPCTSTR)strCurFile,
+                       strCurFile.IsEmpty() ? _T("") : _T("\""));
+ 
+    STARTUPINFO si = { sizeof(si) };
+    PROCESS_INFORMATION pi = {};
+ 
+    // lpCommandLine harus writable buffer, jadi pakai GetBuffer.
+    if (CreateProcess(nullptr, strCmdLine.GetBuffer(), nullptr, nullptr,
+                       FALSE, 0, nullptr, strAppDir, &si, &pi)) {
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+    } else {
+        AfxMessageBox(_T("Gagal menjalankan Macan Video Converter."), MB_ICONERROR | MB_OK);
+    }
+    strCmdLine.ReleaseBuffer();
 }
 
 void CMainFrame::OnUpdateFileProperties(CCmdUI* pCmdUI)
