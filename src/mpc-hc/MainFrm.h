@@ -1031,6 +1031,7 @@ public:
     afx_msg void OnFileSubtitlesDownload();
     afx_msg void OnUpdateFileSubtitlesDownload(CCmdUI* pCmdUI);
     afx_msg void OnFileProperties();
+    afx_msg void OnFileVideoConverter();
     afx_msg void OnUpdateFileProperties(CCmdUI* pCmdUI);
     afx_msg void OnFileOpenLocation();
     afx_msg void OnFileCloseAndRestore();
