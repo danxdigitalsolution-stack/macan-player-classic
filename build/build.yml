@@ -100,6 +100,10 @@ jobs:
       # Sesuaikan kalau lokasi video_convert.py di repo kamu beda.
       SCRIPT_PATH: tools/video_convert.py
       ICON_PATH: tools/macan_video_converter.ico
+      # ffmpeg.exe & ffprobe.exe di root project (dipakai langsung, tanpa
+      # media_tools). Sesuaikan kalau lokasinya beda.
+      FFMPEG_PATH: tools/ffmpeg.exe
+      FFPROBE_PATH: tools/ffprobe.exe
 
     steps:
       - name: Checkout repository
@@ -108,7 +112,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: Install dependencies
         shell: cmd
@@ -123,9 +127,17 @@ jobs:
           if (Test-Path "${{ env.ICON_PATH }}") {
             $iconArg = @("--icon=${{ env.ICON_PATH }}")
           }
+          $binaryArgs = @()
+          if (Test-Path "${{ env.FFMPEG_PATH }}") {
+            $binaryArgs += "--add-binary=${{ env.FFMPEG_PATH }};."
+          }
+          if (Test-Path "${{ env.FFPROBE_PATH }}") {
+            $binaryArgs += "--add-binary=${{ env.FFPROBE_PATH }};."
+          }
           pyinstaller --noconfirm --onefile --windowed `
             --name MacanVideoConverter `
             @iconArg `
+            @binaryArgs `
             "${{ env.SCRIPT_PATH }}"
 
       - name: Upload MacanVideoConverter artifact
