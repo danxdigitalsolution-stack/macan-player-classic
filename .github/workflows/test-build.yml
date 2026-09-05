@@ -40,10 +40,29 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
+      - name: Install Windows 8.1 SDK + MFC/ATL (required by mpc-hc's vcxproj toolset)
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vsPath = & $vswhere -latest -property installationPath
+          Write-Host "Detected VS install path: $vsPath"
+
+          $vsInstaller = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vs_installer.exe"
+          Start-Process -FilePath $vsInstaller -Wait -NoNewWindow -ArgumentList @(
+            "modify",
+            "--installPath", "`"$vsPath`"",
+            "--add", "Microsoft.VisualStudio.Component.Windows81SDK",
+            "--add", "Microsoft.VisualStudio.Component.VC.ATLMFC",
+            "--quiet",
+            "--norestart"
+          )
+
       - name: Setup MSYS2 (required for internal codecs / LAV Filters build)
+        id: msys2
         uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW64
+          release: false
           update: true
           install: >-
             git
@@ -54,10 +73,23 @@ jobs:
             nasm
 
       - name: Create build.user.bat
-        shell: cmd
+        shell: pwsh
         run: |
-          echo SET MPCHC_MSYS_PATH=D:\a\_temp\msys64> build.user.bat
-          echo SET MPCHC_MSYS_TOOLCHAIN=mingw64>> build.user.bat
+          $msysPath = "${{ steps.msys2.outputs.msys2-location }}"
+          $mingwPath = Join-Path $msysPath "mingw64"
+
+          @"
+          @ECHO OFF
+          SET "MSYSTEM=MINGW32"
+          SET "MSYS2_PATH_TYPE=inherit"
+          SET "MPCHC_MSYS=$msysPath"
+          SET "MPCHC_MINGW32=$mingwPath"
+          SET "MPCHC_MINGW64=$mingwPath"
+          SET "MPCHC_WINSDK_VER=8.1"
+          "@ | Out-File -FilePath build.user.bat -Encoding ascii
+
+          Write-Host "----- build.user.bat -----"
+          Get-Content build.user.bat
 
       - name: Restore NuGet packages
         shell: cmd
