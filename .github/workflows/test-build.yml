@@ -76,15 +76,15 @@ jobs:
         shell: pwsh
         run: |
           $msysPath = "${{ steps.msys2.outputs.msys2-location }}"
-          $mingwPath = Join-Path $msysPath "mingw64"
+          $mingw32Path = Join-Path $msysPath "mingw32"
+          $mingw64Path = Join-Path $msysPath "mingw64"
 
           @"
           @ECHO OFF
-          SET "MSYSTEM=MINGW32"
           SET "MSYS2_PATH_TYPE=inherit"
           SET "MPCHC_MSYS=$msysPath"
-          SET "MPCHC_MINGW32=$mingwPath"
-          SET "MPCHC_MINGW64=$mingwPath"
+          SET "MPCHC_MINGW32=$mingw32Path"
+          SET "MPCHC_MINGW64=$mingw64Path"
           SET "MPCHC_WINSDK_VER=8.1"
           "@ | Out-File -FilePath build.user.bat -Encoding ascii
 
