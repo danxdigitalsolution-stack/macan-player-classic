@@ -1,0 +1,51 @@
+name: Build Media Tools
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'lib.rs'
+      - 'src/**'
+      - 'Cargo.toml'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Kompilasi media_tools
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pasang Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      # abi3-py310 di Cargo.toml bikin satu wheel ini kompatibel dari Python
+      # 3.10 ke atas (dipakai bareng di Macan Player/Viewer maupun Macan
+      # Converter) -- jadi cukup satu versi Python di sini buat build,
+      # gak perlu matrix per versi Python lagi kayak sebelumnya.
+      - name: Pasang Python 3.10 (base ABI3)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Pasang Maturin
+        run: pip install maturin
+
+      # CATATAN VP9 (decode_vp9_frame di lib.rs): gak butuh instal ffmpeg/
+      # libvpx apapun di runner CI ini. Decode-nya spawn ffmpeg.exe secara
+      # runtime di mesin USER (dicari via set_ffmpeg_dir(), lihat komentar
+      # di Cargo.toml) -- bukan di-link statis ke wheel-nya. Jadi build
+      # wheel di sini tetep sama persis kayak sebelum ada fitur VP9 ini.
+
+      - name: 🔨 Kompilasi
+        run: maturin build --release --out dist
+
+      - name: 📋 Lihat Hasil
+        run: dir dist/
+
+      - name: 📤 Unggah Artefak
+        uses: actions/upload-artifact@v4
+        with:
+          name: media-tools-windows
+          path: dist/*.whl
